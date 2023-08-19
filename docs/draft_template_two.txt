@@ -1,0 +1,104 @@
+Water Management System Documentation
+Overview
+
+The Water Management System is a software application developed to manage water-related activities, such as ordering and dispensing water. It is built using Python with Tkinter for the user interface and MySQL as the primary DBMS. The system aims to streamline the process of water ordering and delivery for both customers and merchants, ensuring efficient management and improved user experience.
+
+Installation
+
+Prerequisites:
+
+Python: Make sure Python is installed on your system. You can download Python from the official Python website.
+Tkinter: Tkinter is the standard GUI toolkit for Python. It is usually included with Python installations. If not, you can install it using the package manager or by following the official Tkinter installation instructions.
+MySQL: Install MySQL and ensure it is running on your system. You can download MySQL from the official MySQL website.
+Installation Steps:
+
+Clone the Water Management System repository from the provided source or extract the project files to a local directory.
+Open a terminal or command prompt and navigate to the project directory.
+Install the required dependencies by running the command: pip install -r requirements.txt.
+Create a MySQL database and ensure it is running.
+Update the database connection settings in the system configuration file.
+Run the main application file using Python: python main.py.
+Usage
+
+Login Interface:
+
+When the system is launched, a login window is displayed, prompting the user to enter their username and password.
+User Registration:
+
+If a user does not have an account, they can click on the "Sign Up" button to open a registration window.
+In the registration window, the user is required to enter a username and password.
+The password must meet the specified strength rules, including a minimum length of 8 characters, at least one number, one lowercase letter, one uppercase letter, and one special character.
+The user is also prompted to select their user type: Merchant or Customer.
+An account is created if all fields have been entered correctly and the username does not already exist in the system's database.
+If there are any errors, appropriate error messages are displayed.
+Customer Login:
+
+Customers log in by entering their username and password in the login window.
+After successful login, customers can place orders by selecting a merchant, choosing a bottle, and validating their bank account balance.
+If the validation is successful, an order is sent to the selected merchant for processing.
+Merchant Login:
+
+Merchants log in by entering their username and password in the login window.
+Upon login, merchants are presented with a dashboard containing various actions and features.
+The dashboard includes a sidebar with buttons for Sales History, Orders (with a notification count), Receipts, Dispenser controls, and managing merchant bottles.
+Data Management
+
+Database Initialization:
+
+Upon launching the system, a MySQL database is created if it does not already exist.
+The system automatically creates two tables: merchants and customers, if they do not exist.
+The merchants table consists of two columns: username and password.
+The customers table consists of four columns: username, password, account balance, and notifications.
+Additionally, an orders table is created with columns storing order details such as order number, customer username, merchant username, bottle ID, description, price, order date, order time, delivery status, delivery date, and delivery time.
+Merchant Bottles Table:
+
+When a merchant creates an account, a corresponding merchant bottles table is initialized.
+This table stores bottle information, including the bottle ID, size, measurement unit, and price/cost.
+Sales Table:
+
+As merchants make sales, the system records the sales data in a sales table.
+This table stores information related to each transaction made by merchants.
+Orders Table:
+
+The orders table stores information about customer orders, including the order number, customer username, merchant username, bottle ID, description, price, order date, order time, delivery status, delivery date, and delivery time.
+Functionality
+
+Customer Orders:
+
+Customers can log in, browse available merchants, and select a merchant to place an order.
+The system displays the available bottles from the selected merchant, along with their respective prices.
+Customers can choose a bottle, and the system validates their bank account balance to ensure they have sufficient funds for the purchase.
+If the validation is successful, the customer can proceed to place the order, which is then sent to the selected merchant for further processing.
+Merchant Actions:
+
+Merchants can log in, view their sales history, and access various functionalities from the merchant dashboard.
+The sales history provides an overview of past transactions, including order details, dates, and amounts.
+The dashboard also displays the number of new orders with a notification count.
+Merchants can download receipts for each sale, enabling them to maintain records and generate reports.
+The dispenser control allows merchants to initiate water dispensing and record relevant data.
+Merchants can manage their merchant bottles, adding or deleting bottles as necessary.
+Troubleshooting
+
+Common Issues:
+
+If users encounter any issues while using the system, such as login failures, incorrect balances, or missing data, they can refer to the following suggestions for troubleshooting:
+Verify that the entered username and password are correct.
+Ensure the bank account balance is accurate and up-to-date.
+Check the network connection and ensure the MySQL server is running.
+If the issue persists, contact the system administrator for further assistance.
+Limitations
+
+Scalability:
+
+The current version of the system is designed for small to medium-scale usage. Scaling the system for larger deployments may require additional considerations, such as optimizing database performance and handling increased user loads.
+Hardware Requirements:
+
+The water management system has no specific hardware requirements and can run on standard computer systems with Python, Tkinter, and MySQL installed.
+Future Improvements:
+
+In future versions of the system, potential improvements can include enhancing user interfaces, optimizing database queries, incorporating automated notifications, and introducing more advanced features to streamline the water management process.
+References
+
+Python
+Tkinter
+MySQL

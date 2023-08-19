@@ -1,0 +1,42 @@
+The system starts by launching a window that prompts for username and password. 
+NOTE: The system uses MySQL as its primary DBMS. Upon launching MySQL database is created with two tables (IF NOT EXISTS):
+
+1. The Merchants table `merchants` - Has two columns, `username` and `password`
+2. The customer's table `customers` - Has four columns `username`, `password`, `account balance` and `notifications`
+3. The Orders table `orders` - Has 11 columns that store `ORDER NO`, 'customer_username`, `merchant_username`, `bottle_id`, `description`, `price`, `date of order`, `time of order`, `delivery status`, `delivery date` and `time of delivery`
+
+
+If a user does not have an account the interphase has a button that launches a toplevel window. The Window prompts the user to type in their username. Then a user is required to enter the password twice to make sure they match. I have created rules that govern password strength:
+1. The password must be at least 8 characters long
+2. The password must contain at least a number, lowercase letter, upperase letter and a special character
+
+Another input required before signing up is the user type. There are two user types:
+1. Merchant
+2. Customer
+
+An account is only created if:
+1. All the fields have been entered at least a value.
+2. The username entered does not exist in the union of existing merchant and customer usernames.
+3. If the passwords match and they are strong.
+Otherwise an error message is shown.
+
+MERCHANTS
+These are users who sell water. They refill bottles upon orders from customers. They can also refill bottles with cash money without pre-orders.
+
+When a merchant creates an account, the following data is initialized:
+a) merchant bottles table. this table stores bottle information such as bottle ID, bottle size, measurement unit and price/cost.
+b) as sales table is created to store the sales data.
+
+LOGGIN IN
+As I mentioned earlier, the login interphase prompts username and password. The program checks if the username entered is in the database.
+
+If the username is in the `merchants` table, Merchant Dashboard is displayed. Otherwise the Customer Dashboard is displayed.
+dashboard will display only if the username entered corresponds with the password in the corresponding tables. Otherwise an error message is displayed 'Invalid username or password'.
+
+CUSTOMER LOGIN
+These users place their orders by choosing a merchant, and all the bottles the merchant has. The price for each bottle is displayed. The user chooses a bottle. The program checks if the user's bank account is enough for the bottle price and validates it. If the validation is successful an order is sent to the selected merchant.
+
+MERCHANT LOGIN
+A different interphase displays when a merchant logs in. A sidebar containing buttons "Sales History" (displays sales history), "Orders (n)" where n shows the number of new orders, "Receipts" (enables merchant to download receipts for each sale), "Dispensor" (launches a tab that has controls which initiate water dispensor), "My bottles" (which allows the user to add or delete bottles). 
+
+When water is dispensed the data is recorderd. The dispense interphase allows the merchant to dispense as an order or not order. If water is dispensed as an order a notification is sent to the customer who placed the order and all the data is recorded in the "Orders table".
